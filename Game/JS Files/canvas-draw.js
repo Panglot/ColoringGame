@@ -17,8 +17,8 @@
             height: stage.getHeight()
         }),
         brush = new Kinetic.Circle({
-            radius: 10,
-            fill: 'yellow',
+            radius: 50,
+            fill: 'red',
             strokeWidth: 2,
             x: 100,
             y: 300
@@ -83,20 +83,40 @@
         input.mouseY = (ev.offsetY);
     };
 
+    function DistanceBetweenPoints(x1, y1, x2, y2) {
+        return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+    }
+
     var canvasDraw = setInterval(function () {
         // console.log(input);
         if (input.mouseIsDown) {
             workplace.style.cursor = "crosshair";
-            var duplicate = brush.clone();
-            duplicate.setX(input.mouseX);
-            duplicate.setY(input.mouseY);
-            layer.add(duplicate);
-            brush.remove();
-            brush = duplicate;
-            layer.draw();
-        }
-    }, 1);
+            var currentBrushPosition = brush.clone();
+            currentBrushPosition.setX(input.mouseX);
+            currentBrushPosition.setY(input.mouseY);
+            // var distance = DistanceBetweenPoints(brush.getX(), brush.getY(), currentBrushPosition.getX(), currentBrushPosition.getY());
+            // if (distance > brush.getRadius() * 2) {
+            //     var fillingLine = new Kinetic.Line({
+            //         points: [brush.getX(), brush.getY(), currentBrushPosition.getX(), currentBrushPosition.getY()],
+            //         stroke: 'yellow',
+            //         strokeWidth: brush.getRadius()*2,
+            //         lineJoin: 'round'
+            //     });
+            //     // layer.add(fillingLine);
+            // }
 
+            layer.add(currentBrushPosition);
+            brush.remove();
+            brush = currentBrushPosition;
+            layer.draw();
+            // if (fillingLine) {
+            //     fillingLine.remove();
+            // }
+        }
+        if (!input.mouseIsDown) {
+            workplace.style.cursor = 'default';
+        }
+    }, 16);
 
     layer.add(border);
     stage.add(layer);
