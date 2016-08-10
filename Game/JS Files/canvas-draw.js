@@ -24,6 +24,7 @@
             y: 300
         });
 
+    var ctx = layer.canvas.context._context;
     Input = function () {
         // this.a = false;
         // this.b = false;
@@ -116,8 +117,11 @@
         if (!input.mouseIsDown) {
             workplace.style.cursor = 'default';
         }
+
+        ctx.fillRect(20,20,50,50);
     }, 16);
 
     layer.add(border);
     stage.add(layer);
+
 })();
