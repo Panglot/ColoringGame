@@ -26,7 +26,7 @@ window.onload = function () {
         input.mouseY = (ev.clientY - workplace.offsetTop + document.body.scrollTop);
     };
 
-    
+
     var brush = {
         color: 'yellow',
         x: 0,
@@ -39,17 +39,19 @@ window.onload = function () {
 
     var canvasDraw = function canvasDraw() {
          if (input.mouseIsDown) {
-            workplace.style.cursor = "crosshair";
-            console.log('counter');
+            document.body.style.cursor = 'url(cursor.cur), auto';
+
             brush.x = input.mouseX;
             brush.y = input.mouseY;
+
             ctx.beginPath();
             ctx.fillStyle = brush.color;
             ctx.arc(brush.x, brush.y, brush.thickness, brush.drawStart, brush.drawEnd, brush.counterClockwise);
             ctx.fill();
         }
+
         if (!input.mouseIsDown) {
-            workplace.style.cursor = 'default';
+            document.body.style.cursor = 'default';
         }
 
         window.requestAnimationFrame(canvasDraw);
