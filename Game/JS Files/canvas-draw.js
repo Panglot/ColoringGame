@@ -6,43 +6,9 @@ window.onload = function () {
 
 
     Input = function () {
-        // this.a = false;
-        // this.b = false;
-        // this.c = false;
-        // this.d = false;
-        // this.e = false;
-        // this.f = false;
-        // this.g = false;
-        // this.h = false;
-        // this.i = false;
-        // this.j = false;
-        // this.k = false;
-        // this.l = false;
-        // this.m = false;
-        // this.n = false;
-        // this.o = false;
-        // this.p = false;
-        // this.q = false;
-        // this.r = false;
-        // this.s = false;
-        // this.t = false;
-        // this.u = false;
-        // this.v = false;
-        // this.w = false;
-        // this.x = false;
-        // this.y = false;
-        // this.z = false;
-        // this.left = false;
-        // this.right = false;
-        // this.up = false;
-        // this.down = false;
-        // this.enter = false;
-        // this.space = false;
         this.mouseIsDown = false;
         this.mouseX = 0;
         this.mouseY = 0;
-        this.offsetX = 0;
-        this.offsetY = 0;
     };
 
     var input = new Input();
@@ -50,24 +16,17 @@ window.onload = function () {
     document.documentElement.onmousedown = function (ev) {
         input.mouseIsDown = true;
     };
-
     document.documentElement.onmouseup = function (ev) {
         input.mouseIsDown = false;
     };
 
     document.documentElement.onmousemove = function (ev) {
         ev = ev || window.event;
-
         input.mouseX = (ev.clientX - workplace.offsetLeft + document.body.scrollLeft);
         input.mouseY = (ev.clientY - workplace.offsetTop + document.body.scrollTop);
-        // input.mouseX = (ev.offsetX);
-        // input.mouseY = (ev.offsetY);
     };
 
-    // function DistanceBetweenPoints(x1, y1, x2, y2) {
-    //     return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
-    // }
-
+    
     var brush = {
         color: 'yellow',
         x: 0,
