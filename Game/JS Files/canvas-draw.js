@@ -58,8 +58,8 @@ window.onload = function () {
     document.documentElement.onmousemove = function (ev) {
         ev = ev || window.event;
 
-        input.mouseX = (ev.clientX - workplace.offsetLeft);
-        input.mouseY = (ev.clientY - workplace.offsetTop);
+        input.mouseX = (ev.clientX - workplace.offsetLeft + document.body.scrollLeft);
+        input.mouseY = (ev.clientY - workplace.offsetTop + document.body.scrollTop);
         // input.mouseX = (ev.offsetX);
         // input.mouseY = (ev.offsetY);
     };
@@ -72,13 +72,13 @@ window.onload = function () {
         color: 'yellow',
         x: 0,
         y: 0,
-        thickness: 30,
+        thickness: 10,
         drawStart: 0,
         drawEnd: Math.PI*2,
         counterClockwise: false
     };
 
-    var canvasDraw = setInterval(function () {
+    var canvasDraw = function canvasDraw() {
          if (input.mouseIsDown) {
             workplace.style.cursor = "crosshair";
             console.log('counter');
@@ -92,5 +92,9 @@ window.onload = function () {
         if (!input.mouseIsDown) {
             workplace.style.cursor = 'default';
         }
-    }, 1);
+
+        window.requestAnimationFrame(canvasDraw);
+    };
+
+    canvasDraw();
 }
