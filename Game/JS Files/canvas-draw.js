@@ -1,30 +1,10 @@
-(function () {
-    var stage = new Kinetic.Stage({
-            container: 'main-drawing-window',
-            width: 920,
-            height: 750
-        }),
-        workplace = document.getElementById('main-drawing-window'),
-        layer = new Kinetic.Layer({
-            clearBeforeDraw: false
-        }),
-        border = new Kinetic.Rect({
-            stroke: "black",
-            strokeWidth: 2,
-            x: 0,
-            y: 0,
-            width: stage.getWidth(),
-            height: stage.getHeight()
-        }),
-        brush = new Kinetic.Circle({
-            radius: 50,
-            fill: 'red',
-            strokeWidth: 2,
-            x: 100,
-            y: 300
-        });
+window.onload = function () {
+    var workplace = document.getElementById('main-drawing-window');
+    var ctx = workplace.getContext('2d');
+    workplace.width = 720;
+    workplace.height = 540;
 
-    var ctx = layer.canvas.context._context;
+
     Input = function () {
         // this.a = false;
         // this.b = false;
@@ -78,50 +58,39 @@
     document.documentElement.onmousemove = function (ev) {
         ev = ev || window.event;
 
-        // input.mouseX = (ev.clientX - workplace.offsetLeft);
-        // input.mouseY = (ev.clientY - workplace.offsetTop);
-        input.mouseX = (ev.offsetX);
-        input.mouseY = (ev.offsetY);
+        input.mouseX = (ev.clientX - workplace.offsetLeft);
+        input.mouseY = (ev.clientY - workplace.offsetTop);
+        // input.mouseX = (ev.offsetX);
+        // input.mouseY = (ev.offsetY);
     };
 
-    function DistanceBetweenPoints(x1, y1, x2, y2) {
-        return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
-    }
+    // function DistanceBetweenPoints(x1, y1, x2, y2) {
+    //     return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+    // }
+
+    var brush = {
+        color: 'yellow',
+        x: 0,
+        y: 0,
+        thickness: 30,
+        drawStart: 0,
+        drawEnd: Math.PI*2,
+        counterClockwise: false
+    };
 
     var canvasDraw = setInterval(function () {
-        // console.log(input);
-        if (input.mouseIsDown) {
+         if (input.mouseIsDown) {
             workplace.style.cursor = "crosshair";
-            var currentBrushPosition = brush.clone();
-            currentBrushPosition.setX(input.mouseX);
-            currentBrushPosition.setY(input.mouseY);
-            // var distance = DistanceBetweenPoints(brush.getX(), brush.getY(), currentBrushPosition.getX(), currentBrushPosition.getY());
-            // if (distance > brush.getRadius() * 2) {
-            //     var fillingLine = new Kinetic.Line({
-            //         points: [brush.getX(), brush.getY(), currentBrushPosition.getX(), currentBrushPosition.getY()],
-            //         stroke: 'yellow',
-            //         strokeWidth: brush.getRadius()*2,
-            //         lineJoin: 'round'
-            //     });
-            //     // layer.add(fillingLine);
-            // }
-
-            layer.add(currentBrushPosition);
-            brush.remove();
-            brush = currentBrushPosition;
-            layer.draw();
-            // if (fillingLine) {
-            //     fillingLine.remove();
-            // }
+            console.log('counter');
+            brush.x = input.mouseX;
+            brush.y = input.mouseY;
+            ctx.beginPath();
+            ctx.fillStyle = brush.color;
+            ctx.arc(brush.x, brush.y, brush.thickness, brush.drawStart, brush.drawEnd, brush.counterClockwise);
+            ctx.fill();
         }
         if (!input.mouseIsDown) {
             workplace.style.cursor = 'default';
         }
-
-        ctx.fillRect(20,20,50,50);
-    }, 16);
-
-    layer.add(border);
-    stage.add(layer);
-
-})();
+    }, 1);
+}

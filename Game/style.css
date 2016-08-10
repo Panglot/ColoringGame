@@ -1,0 +1,62 @@
+.wrapper{
+   width: 924px;
+   height: 756px;
+   padding: 0;
+   border: 1px solid black;
+ }
+
+.header{
+  float: left;
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+  width: 720px;
+  height: 60px;
+}
+
+#main-drawing-window  {
+  border: 1px solid black;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 720px;
+  height: 540px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.front{
+  margin:0;
+  padding:0;
+  position: absolute;
+  left: 10px;
+  top: 72px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  user-drag: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+
+.tools{
+  float: left;
+  margin:0;
+  padding: 0;
+  width: 720px;
+  height: 150px;
+  border: 1px solid black;
+}
+.sidebar-images{
+  margin:0;
+  padding:0;
+  float: right;
+  width: 200px;
+  height: 754px;
+  border: 1px solid black;
+}
