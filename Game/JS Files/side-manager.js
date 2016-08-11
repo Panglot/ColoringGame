@@ -154,7 +154,7 @@ $.fn.startingSideBar = function () {
         mainImgSrc =  "Images/" + rawImgsUrl[mainImgIx - 1] + mainImgIx + ".png";
         $(mainImg).attr('src', mainImgSrc);
 
-        ctx.clearRect(10, 70, workplace.width, workplace.height);
+        ctx.clearRect(0, 0, workplace.width, workplace.height);
 
         return mainImgSrc;
     }
