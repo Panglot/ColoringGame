@@ -28,6 +28,7 @@ $.fn.startingSideBar = function () {
 
     function sideBarMain() {
         //- Variables and objects declaration start
+        
         var stylesUl = {
             "list-style-type" : "none",
             "margin" : "0",
