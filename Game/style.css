@@ -54,12 +54,33 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-  
+}
+
+.tools{
+  margin:0;
+  padding: 0;
+  border: 1px solid black;
+  float: left;
+  width: 100%;
+  height: 150px;
+}
+
+.side-imgs-list{
+  margin: 0;
+  padding: 2px;
+}
+
+.side-img{
+  border: 1px solid gray;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .front{
   margin:0;
   padding:0;
+  width: 710px;
+  height: 530px;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -72,14 +93,6 @@
   z-index: -2;
 }
 
-.tools{
-  margin:0;
-  padding: 0;
-  border: 1px solid black;
-  float: left;
-  width: 100%;
-  height: 150px;
-}
 .sidebar-images{
   margin:0;
   padding:0;
