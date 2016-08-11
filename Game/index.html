@@ -24,6 +24,15 @@
             <img id="color-icon" src="./Images/tools/color dots/lightgreen-color-dot.png" alt="selected color">
           </div>
 
+          <div id="audio">
+            <audio controls="controls" autoplay loop>
+              <source src="./MusicBackground/HappyChildrenMusicalBackground.mp3"
+                      autoplay="autoplay"
+                      loop="loop"
+                      type="audio/mpeg" />
+            </audio>
+          </div>
+
         </div>
         <div class="main">
           <img class="front" draggable="false" src="./Images/image-1.png" alt="coloring image" />
@@ -50,6 +59,7 @@
     <script type="text/javascript" src="./JS files/canvas-draw.js"></script>
     <script type="text/javascript" src="./JS files/side-manager.js"></script>
     <script type="text/javascript" src="./JS files/tools-bar.js"></script>
+    <script type="text/javascript" src="./JS files/hide-show-musicplayer.js"></script>
     <script>
       $(function () {
         $().startingSideBar();
