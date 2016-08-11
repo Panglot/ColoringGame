@@ -11,13 +11,26 @@
   <body>
     <div class="wrapper">
       <div id="leftPart">
-        <div class="header"></div>
+        <div class="header">
+
+          <div id="left-icons">
+            <img id="sound-icon" src="./Images/sound-icon.png" alt="sound icon">
+            <h1 id="title">I'm coloring my friends</h1>
+          </div>
+
+          <div id="right-icons">
+            <img id="pen-icon" src="./Images/tools/pen.png" alt="selectd brush">
+            <img id="size-icon" src="./Images/tools/size dots/size-dot-small.png" alt="selected size">
+            <img id="color-icon" src="./Images/tools/color dots/lightgreen-color-dot.png" alt="selected color">
+          </div>
+
+        </div>
         <div class="main">
-          <img class="front" draggable="false" src="./Images/image-1.png" alt="" />
+          <img class="front" draggable="false" src="./Images/image-1.png" alt="coloring image" />
           <canvas id="main-drawing-window"></canvas>
         </div>
         <div class="tools">
-          <canvas id="tools"></canvas>
+          <canvas id="tools-canvas"></canvas>
             <img src="./Images/tools/blank_sheet.png" id="clear" alt="" hidden="true"/>
             <img src="./Images/tools/colors.png" id="palette" alt=""  hidden="true"/>
             <img src="./Images/tools/Crayon.png" id="crayon" alt=""  hidden="true"/>
