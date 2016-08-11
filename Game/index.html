@@ -17,14 +17,14 @@
           <canvas id="main-drawing-window"></canvas>
         </div>
         <div class="tools">
-          <!-- <div id="pen" class="tools painting-tools"></div>
-          <div id="marker" class="tools painting-tools"></div>
-          <div id="crayon" class="tools painting-tools"></div>
-          <div id="eraser" class="tools painting-tools"></div>
-
-          <div id="colors" class="tools color-tools"></div>
-          <div id="sizes" class="tools size-tools"></div>
-          <div id="blank" class="tools blank-tools"></div> -->
+          <canvas id="tools"></canvas>
+          <img src="./Images/tools/blank_sheet.png" id="clear" alt="" hidden="true"/>
+          <img src="./Images/tools/colors.png" id="palette" alt=""  hidden="true"/>
+          <img src="./Images/tools/Crayon.png" id="crayon" alt=""  hidden="true"/>
+          <img src="./Images/tools/eraser.png" id="eraser" alt=""  hidden="true"/>
+          <img src="./Images/tools/Marker.png" id="marker" alt=""  hidden="true"/>
+          <img src="./Images/tools/pen.png" id="pen" alt=""  hidden="true"/>
+          <img src="./Images/tools/sizes.png" id="size" alt=""  hidden="true"/>
         </div>
       </div>
       <div id="rightPart">
@@ -36,6 +36,7 @@
 
     <script type="text/javascript" src="./JS files/canvas-draw.js"></script>
     <script type="text/javascript" src="./JS files/side-manager.js"></script>
+    <script type="text/javascript" src="./JS files/tools-bar.js"></script>
     <script>
       $(function () {
         $().startingSideBar();

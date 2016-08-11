@@ -5,6 +5,7 @@ window.onload = function () {
     workplace.height = 540;
 
     document.getElementsByClassName('front')[0].ondragstart = function() { return false; };
+    toolbar();
 
     Input = function () {
         this.mouseIsDown = false;
@@ -37,6 +38,9 @@ window.onload = function () {
         drawEnd: Math.PI*2,
         counterClockwise: false
     };
+
+
+
 
     var canvasDraw = function canvasDraw() {
          if (input.mouseIsDown) {
