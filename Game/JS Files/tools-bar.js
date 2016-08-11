@@ -64,27 +64,49 @@ function toolbar(brush) {
         }
         else if(mouseX > 220 && mouseX < eraser.width+220 && mouseY > canvas.height - eraser.height && mouseY < canvas.height){
             brush.type = 'eraser';
+            brush.color = 'white';
         }
         else if(mouseX > 329 && mouseX < 345 && mouseY > 13 && mouseY < 28){
-            console.log('small circle');
+            brush.thickness = 8;
         }
         else if(mouseX > 325 && mouseX < 347 && mouseY > 40 && mouseY < 59){
-            console.log('medium circle');
+            brush.thickness = 16;
         }
         else if(mouseX > 323 && mouseX < 350 && mouseY > 74 && mouseY < 98){
-            console.log('large circle');
+            brush.thickness = 28;
         }
         else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
-            console.log('huge circle');
+            brush.thickness = 40;
+        }
+        else if(mouseX > 415 && mouseX < 440 && mouseY > 80 && mouseY < 105){
+            brush.color = '#FFFF66';
         }
         else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
-            console.log('huge circle');
+            brush.color = '#FF9900';
         }
         else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
-            console.log('huge circle');
+            brush.color = '#FF3300';
         }
         else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
-            console.log('huge circle');
+            brush.color = '#ACACAC';
+        }
+        else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
+            brush.color = '#765000';
+        }
+        else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
+            brush.color = '#339933';
+        }
+        else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
+            brush.color = '#66FF99';
+        }
+        else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
+            brush.color = '#33CCFF';
+        }
+        else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
+            brush.color = '#003399';
+        }
+        else if(mouseX > 320 && mouseX < 356 && mouseY > 110 && mouseY < 144){
+            brush.color = '#000000';
         }
         redrawToolbar();
 

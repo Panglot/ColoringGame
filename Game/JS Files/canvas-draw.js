@@ -17,8 +17,9 @@ window.onload = function () {
         color: 'red',
         x: 0,
         y: 0,
-        thickness: 10
+        thickness: 16
     };
+    headerMain(brush);
     toolbar(brush);
 
     var Input = function () {
@@ -71,7 +72,8 @@ window.onload = function () {
     };
 
     var cryonDraw = function () {
-        ctx.lineWidth = brush.thickness;
+        var scale = brush.thickness/2;
+        ctx.lineWidth = brush.thickness-scale;
         ctx.strokeStyle = brush.color;
         ctx.lineJoin = ctx.lineCap = 'round';
 
@@ -79,13 +81,13 @@ window.onload = function () {
         ctx.beginPath();
 
         ctx.globalAlpha = 1;
-        ctx.moveTo(lastPoint.x - 4, lastPoint.y - 4);
-        ctx.lineTo(brush.x - 4, brush.y - 4);
+        ctx.moveTo(lastPoint.x - scale, lastPoint.y - scale);
+        ctx.lineTo(brush.x - scale, brush.y - scale);
         ctx.stroke();
 
         ctx.globalAlpha = 0.6;
-        ctx.moveTo(lastPoint.x - 2, lastPoint.y - 2);
-        ctx.lineTo(brush.x - 2, brush.y - 2);
+        ctx.moveTo(lastPoint.x - scale/2, lastPoint.y - scale/2);
+        ctx.lineTo(brush.x - scale/2, brush.y - scale/2);
         ctx.stroke();
 
         ctx.globalAlpha = 0.4;
@@ -94,15 +96,16 @@ window.onload = function () {
         ctx.stroke();
 
         ctx.globalAlpha = 0.3;
-        ctx.moveTo(lastPoint.x + 2, lastPoint.y + 2);
-        ctx.lineTo(brush.x + 2, brush.y + 2);
+        ctx.moveTo(lastPoint.x + scale/2, lastPoint.y + scale/2);
+        ctx.lineTo(brush.x + scale/2, brush.y + scale/2);
         ctx.stroke();
 
         ctx.globalAlpha = 0.2;
-        ctx.moveTo(lastPoint.x + 4, lastPoint.y + 4);
-        ctx.lineTo(brush.x + 4, brush.y + 4);
+        ctx.moveTo(lastPoint.x + scale, lastPoint.y + scale);
+        ctx.lineTo(brush.x + scale, brush.y + scale);
         ctx.stroke();
 
+        ctx.globalAlpha = 1;
         lastPoint = {x: brush.x, y: brush.y};
     };
 
@@ -116,10 +119,10 @@ window.onload = function () {
             if (brush.type === 'pen') {
                 penDraw();
             }
-            else if (brush.type === 'cryon') {
+            else if (brush.type === 'crayon') {
                 cryonDraw();
             }
-            else if (brush.type === 'marker') {
+            else if (brush.type === 'marker' || brush.type ==='eraser') {
                 markerDraw();
             }
 
