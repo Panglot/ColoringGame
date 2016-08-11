@@ -4,8 +4,18 @@ window.onload = function () {
     workplace.width = 720;
     workplace.height = 540;
 
-    document.getElementsByClassName('front')[0].ondragstart = function() { return false; };
-    toolbar();
+    document.getElementsByClassName('front')[0].ondragstart = function () {
+        return false;
+    };
+
+    var brush = {
+        type: 'pen',
+        color: 'red',
+        x: 0,
+        y: 0,
+        thickness: 10
+    };
+    toolbar(brush);
 
     Input = function () {
         this.mouseIsDown = false;
@@ -17,6 +27,8 @@ window.onload = function () {
 
     document.documentElement.onmousedown = function (ev) {
         input.mouseIsDown = true;
+        input.mouseX = (ev.clientX - workplace.offsetLeft + document.body.scrollLeft);
+        input.mouseY = (ev.clientY - workplace.offsetTop + document.body.scrollTop);
     };
     document.documentElement.onmouseup = function (ev) {
         input.mouseIsDown = false;
@@ -29,38 +41,95 @@ window.onload = function () {
     };
 
 
-    var brush = {
-        color: 'yellow',
-        x: 0,
-        y: 0,
-        thickness: 10,
-        drawStart: 0,
-        drawEnd: Math.PI*2,
-        counterClockwise: false
+    var markerDraw = function () {
+
+        ctx.beginPath();
+        ctx.fillStyle = brush.color;
+        ctx.arc(brush.x, brush.y, brush.thickness, 0, Math.PI * 2);
+        ctx.fill();
+    };
+    var lastPoint = {x: brush.x, y: brush.y};
+
+    var penDraw = function () {
+
+        ctx.lineWidth = Math.floor(Math.random() * ((brush.thickness + 2) - (brush.thickness - 2) + 1)) + (brush.thickness - 2);
+        ctx.strokeStyle = brush.color;
+        ctx.lineJoin = ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        ctx.moveTo(lastPoint.x, lastPoint.y);
+        ctx.lineTo(brush.x, brush.y);
+        ctx.stroke();
+
+
+        lastPoint = {x: brush.x, y: brush.y};
+
     };
 
+    var cryonDraw = function () {
+        ctx.lineWidth = brush.thickness;
+        ctx.strokeStyle = brush.color;
+        ctx.lineJoin = ctx.lineCap = 'round';
 
 
+        ctx.beginPath();
+
+        ctx.globalAlpha = 1;
+        ctx.moveTo(lastPoint.x - 4, lastPoint.y - 4);
+        ctx.lineTo(brush.x - 4, brush.y - 4);
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.6;
+        ctx.moveTo(lastPoint.x - 2, lastPoint.y - 2);
+        ctx.lineTo(brush.x - 2, brush.y - 2);
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.4;
+        ctx.moveTo(lastPoint.x, lastPoint.y);
+        ctx.lineTo(brush.x, brush.y);
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.3;
+        ctx.moveTo(lastPoint.x + 2, lastPoint.y + 2);
+        ctx.lineTo(brush.x + 2, brush.y + 2);
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.2;
+        ctx.moveTo(lastPoint.x + 4, lastPoint.y + 4);
+        ctx.lineTo(brush.x + 4, brush.y + 4);
+        ctx.stroke();
+
+        lastPoint = {x: brush.x, y: brush.y};
+    };
 
     var canvasDraw = function canvasDraw() {
-         if (input.mouseIsDown) {
+        brush.x = input.mouseX;
+        brush.y = input.mouseY;
+        if (input.mouseIsDown) {
             document.body.style.cursor = 'url(cursor.cur), auto';
 
-            brush.x = input.mouseX;
-            brush.y = input.mouseY;
 
-            ctx.beginPath();
-            ctx.fillStyle = brush.color;
-            ctx.arc(brush.x, brush.y, brush.thickness, brush.drawStart, brush.drawEnd, brush.counterClockwise);
-            ctx.fill();
+            if (brush.type === 'pen') {
+                penDraw();
+            }
+            else if (brush.type === 'cryon') {
+                cryonDraw();
+            }
+            else if (brush.type === 'marker') {
+                markerDraw();
+            }
+
         }
 
         if (!input.mouseIsDown) {
+            lastPoint.x = brush.x;
+            lastPoint.y = brush.y;
             document.body.style.cursor = 'default';
         }
 
         window.requestAnimationFrame(canvasDraw);
     };
+
 
     canvasDraw();
 }
