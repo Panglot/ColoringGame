@@ -23,7 +23,7 @@ $.fn.startingSideBar = function () {
         name: "side object",
         imgsCount: 5,
         selectedImageIndex: 1,
-        selectedImgSrc: "Images/" + rawImgsUrl[0] + "1.png"
+        selectedImgSrc: "BasicBlankImage720x540.png"
     };
 
 
