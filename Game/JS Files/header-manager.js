@@ -72,7 +72,7 @@ function headerMain(brush) {
         }
 
         else if (brush.color === '#765000') {
-            $(colorElement).attr('src', './Images/tools/color-dots/broun-color-dot.png-');
+            $(colorElement).attr('src', './Images/tools/color-dots/broun-color-dot.png');
         }
         else if (brush.color === '#339933') {
             $(colorElement).attr('src', './Images/tools/color-dots/green-color-dot.png');
