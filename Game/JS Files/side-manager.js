@@ -149,6 +149,8 @@ $.fn.startingSideBar = function () {
     }
 
     function updateMainImgSrc() {
+        var workplace = document.getElementById('main-drawing-window');
+        var ctx = workplace.getContext('2d');
 
         var mainImg = document.querySelector('.front'),
             mainImgSrc = '',
@@ -160,6 +162,7 @@ $.fn.startingSideBar = function () {
         $(mainImg).attr('src', mainImgSrc);
 
 
+        ctx.clearRect(10,70, workplace.width, workplace.height);
         return mainImgSrc;
     }
     //-- Functions declaration end

@@ -4,6 +4,7 @@ window.onload = function () {
     workplace.width = 720;
     workplace.height = 540;
 
+    document.getElementsByClassName('front')[0].ondragstart = function() { return false; };
 
     Input = function () {
         this.mouseIsDown = false;
