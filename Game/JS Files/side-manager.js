@@ -29,24 +29,6 @@ $.fn.startingSideBar = function () {
 
     function sideBarMain() {
         //- Variables and objects declaration start
-
-        // var stylesUl = {
-        //     "list-style-type" : "none",
-        //     "margin" : "0",
-        //     "padding" : "0"
-        // };
-        //
-        // var stylesLi = {
-        //     "margin" : "0",
-        //     "padding" : "2"
-        // };
-        //
-        // var stylesImg = {
-        //     "border" : "1px solid gray",
-        //     "border-radius" : "5px",
-        //     "cursor" : "pointer"
-        // };
-
         var $sideWrapper = $(".sidebar-images"), // Main side div
             $sideUl,
             $sideLi,
