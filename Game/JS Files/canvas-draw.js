@@ -116,16 +116,23 @@ window.onload = function () {
         brush.x = input.mouseX;
         brush.y = input.mouseY;
         if (input.mouseIsDown) {
-            document.body.style.cursor = 'url(cursor.cur), auto';
+        //     document.body.style.cursor = 'url(cursors/pen.cur), auto';
 
 
             if (brush.type === 'pen') {
+                document.body.style.cursor = 'url(cursors/pen.cur), auto';
                 penDraw();
             }
             else if (brush.type === 'crayon') {
+                document.body.style.cursor = 'url(cursors/crayon.cur), auto';
                 cryonDraw();
             }
-            else if (brush.type === 'marker' || brush.type ==='eraser') {
+            else if (brush.type === 'marker') {
+                document.body.style.cursor = 'url(cursors/marker.cur), auto';
+                markerDraw();
+            }
+            else if (brush.type ==='eraser') {
+                document.body.style.cursor = 'url(cursors/eraser.cur), auto';              
                 markerDraw();
             }
 
