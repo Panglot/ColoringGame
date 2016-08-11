@@ -135,7 +135,7 @@ $.fn.startingSideBar = function () {
 
     function onClickSelectImg(ev) {
         //var $imgSelected = ev.target;
-        var idSplitted = event.target.id.split('-');
+        var idSplitted = ev.target.id.split('-');
         var imgIx = Number(idSplitted[idSplitted.length - 1]);
 
         sideProperties.selectedImageIndex = imgIx;
