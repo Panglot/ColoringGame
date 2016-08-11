@@ -14,10 +14,11 @@ window.onload = function () {
 
     var brush = {
         type: 'pen',
-        color: 'red',
+        color: '#000000',
         x: 0,
         y: 0,
-        thickness: 16
+        thickness: 16,
+        clear: false
     };
     headerMain(brush);
     toolbar(brush);
@@ -132,6 +133,10 @@ window.onload = function () {
             lastPoint.x = brush.x;
             lastPoint.y = brush.y;
             document.body.style.cursor = 'default';
+        }
+        if(brush.clear) {
+            ctx.clearRect(0,0, workplace.width, workplace.height);
+            brush.clear = false;
         }
 
         window.requestAnimationFrame(canvasDraw);
