@@ -1,8 +1,12 @@
+'use strict';
+
 window.onload = function () {
+
     var workplace = document.getElementById('main-drawing-window');
     var ctx = workplace.getContext('2d');
     workplace.width = 720;
     workplace.height = 540;
+
 
     document.getElementsByClassName('front')[0].ondragstart = function () {
         return false;
@@ -17,7 +21,7 @@ window.onload = function () {
     };
     toolbar(brush);
 
-    Input = function () {
+    var Input = function () {
         this.mouseIsDown = false;
         this.mouseX = 0;
         this.mouseY = 0;
@@ -132,4 +136,4 @@ window.onload = function () {
 
 
     canvasDraw();
-}
+};

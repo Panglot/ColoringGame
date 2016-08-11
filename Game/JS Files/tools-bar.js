@@ -1,10 +1,11 @@
 /**
  * Created by softwareacademy on 11-Aug-16.
  */
+'use strict';
 
 function toolbar(brush) {
 
-    var canvas = document.getElementById('tools'),
+    var canvas = document.getElementById('tools-canvas'),
         ctx = canvas.getContext('2d'),
         crayon = document.getElementById("crayon"),
         marker = document.getElementById("marker"),
@@ -43,7 +44,7 @@ function toolbar(brush) {
         }
 
 
-    }
+    };
     redrawToolbar();
 
 
