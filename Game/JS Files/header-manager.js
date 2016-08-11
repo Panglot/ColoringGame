@@ -15,10 +15,6 @@ function headerMain(brush) {
         updatePen();
         updateSize();
         updateColor();
-
-        console.log("bruch type: " + brush.type);
-        console.log("bruch size: " + brush.thickness);
-        console.log("bruch color: " + brush.color);
     }
 
     function updatePen() {
