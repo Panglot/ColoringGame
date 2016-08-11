@@ -10,16 +10,23 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="header"></div>
-      <div class="sidebar-images"></div>
-      <canvas id="main-drawing-window"></canvas>
-      <img class="front" src="./images/image1.png" alt="" />
-      <div class="tools"></div>
+      <div id="leftPart">
+        <div class="header"></div>
+        <div class="main">
+          <img class="front" src="./Images/image-1.png" alt="" />
+          <canvas id="main-drawing-window"></canvas>
+        </div>
+        <div class="tools"></div>
+      </div>
+      <div id="rightPart">
+
+        <div class="sidebar-images"></div>
+      </div>
+
     </div>
 
-
     <script type="text/javascript" src="./JS files/canvas-draw.js"></script>
-    <script type="text/javascript" src="JS files/side-manager.js"></script>
+    <script type="text/javascript" src="./JS files/side-manager.js"></script>
     <script>
       $(function () {
         $().startingSideBar();
