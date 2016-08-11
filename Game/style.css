@@ -48,6 +48,7 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  z-index: -1;
 }
 
 .front{
@@ -62,6 +63,7 @@
   user-drag: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
+  z-index: -2;
 }
 
 .tools{
@@ -79,4 +81,28 @@
   width: 190px;
   height: 754px;
   border: 1px solid black;
+}
+
+.tools{
+  margin:0;
+  padding:0;
+  height: 145px;
+  float: left;
+}
+
+.painting-tools{
+
+  width: 70px;
+}
+
+.color-tools{
+  width: 150px;
+}
+
+.size-tools{
+  width: 150px;
+}
+
+.blank-tools{
+  width: 50px;
 }
