@@ -3,13 +3,6 @@
  */
 $.fn.startingSideBar = function () {
 
-    var sideProperties = {
-        name: "side object",
-        imgsCount: 5,
-        selectedImageIndex: 1,
-        selectedImgObj: null
-    };
-
     var coloredImgsUrl = [
         "image-colored-",
         "image-colored-",
@@ -26,42 +19,48 @@ $.fn.startingSideBar = function () {
         "image-"
     ];
 
+    var sideProperties = {
+        name: "side object",
+        imgsCount: 5,
+        selectedImageIndex: 1,
+        selectedImgSrc: "Images/" + rawImgsUrl[0] + "1.png"
+    };
+
+
     function sideBarMain() {
         //- Variables and objects declaration start
-        
-        var stylesUl = {
-            "list-style-type" : "none",
-            "margin" : "0",
-            "padding" : "0"
-        };
 
-        var stylesLi = {
-            "margin" : "0",
-            "padding" : "2"
-        };
-
-        var stylesImg = {
-            "border" : "1px solid gray",
-            "border-radius" : "5px",
-            "cursor" : "pointer"
-        };
+        // var stylesUl = {
+        //     "list-style-type" : "none",
+        //     "margin" : "0",
+        //     "padding" : "0"
+        // };
+        //
+        // var stylesLi = {
+        //     "margin" : "0",
+        //     "padding" : "2"
+        // };
+        //
+        // var stylesImg = {
+        //     "border" : "1px solid gray",
+        //     "border-radius" : "5px",
+        //     "cursor" : "pointer"
+        // };
 
         var $sideWrapper = $(".sidebar-images"), // Main side div
             $sideUl,
             $sideLi,
-            $sideImg,
-            $selectedImg;
+            $sideImg;
 
         //-- Variables and objects declaration end
         $sideUl = createDomElement("ul", "side-ul", "");
 
         for(var i = 0, len = sideProperties.imgsCount; i < len; i += 1){
-            var onePlusIx = Number(1 + i);
+            $sideImg = createDomElement("img", "side-img-" + Number(1 + i), "side-img");
+            setImgAttributes($sideImg, 190, 140, "Images/" + coloredImgsUrl[i] + Number(1 + i) + ".png");
+            $sideLi = createDomElement("li", "", "side-imgs-list");
 
-            $sideImg = createDomElement("img", "side-img-" + onePlusIx, "", stylesImg);
-            setImgAttributes($sideImg, 190, 140, "Images/" + coloredImgsUrl[i] + onePlusIx + ".png");
-            $sideLi = createDomElement("li", "", "side-imgs-list", stylesLi);
-
+            // Subscribe all images for click event
             $sideImg.click(onClickSelectImg);
 
             $sideLi.append($sideImg);
@@ -69,13 +68,10 @@ $.fn.startingSideBar = function () {
         }
         $sideWrapper.append($sideUl);
 
-        selectedImg = sideProperties.selectedImgObj;
-
-        return selectedImg;
+        return sideProperties.selectedImgSrc;
     }
 
     //- Sub Functions declaration start
-
     function setImgAttributes(imgToSetAttributes, width, height, src) {
 
         $(imgToSetAttributes).attr("src", src).width(width).height(height);
@@ -135,18 +131,16 @@ $.fn.startingSideBar = function () {
     }
 
     function onClickSelectImg(ev) {
-        //var $imgSelected = ev.target;
         var idSplitted = ev.target.id.split('-');
         var imgIx = Number(idSplitted[idSplitted.length - 1]);
 
         sideProperties.selectedImageIndex = imgIx;
-        sideProperties.selectedImgObj = ev.target;
+        sideProperties.selectedImgSrc = ev.target.src;
 
         var mImgSrc = updateMainImgSrc();
 
-        console.log("src: " + mImgSrc);
         console.log("index: " + sideProperties.selectedImageIndex);
-        console.log("image object: " + sideProperties.selectedImgObj);
+        console.log("src: " + sideProperties.selectedImgSrc);
     }
 
     function updateMainImgSrc() {
@@ -157,17 +151,14 @@ $.fn.startingSideBar = function () {
             mainImgSrc = '',
             mainImgIx = sideProperties.selectedImageIndex;
 
-        $(mainImg).width(710).height(530);
-
         mainImgSrc =  "Images/" + rawImgsUrl[mainImgIx - 1] + mainImgIx + ".png";
         $(mainImg).attr('src', mainImgSrc);
 
+        ctx.clearRect(10, 70, workplace.width, workplace.height);
 
-        ctx.clearRect(10,70, workplace.width, workplace.height);
         return mainImgSrc;
     }
     //-- Functions declaration end
-
 
     //- Function calls
     sideBarMain();
