@@ -15,6 +15,7 @@ window.onload = function () {
     var brush = {
         type: 'pen',
         color: '#000000',
+        prevColor: '#000000',
         x: 0,
         y: 0,
         thickness: 16,
