@@ -6,13 +6,13 @@
     idx;
 
 $(function() {
-    var div = $('#title'); 
-    var chars = div.text().split('');
-    div.html('');     
+    var title = $('#title'); 
+    var chars = title.text().split('');
+    title.html('');     
     for(var i=0; i<chars.length; i++) {
         idx = Math.floor(Math.random() * colours.length);
         var span = $('<span>' + chars[i] + '</span>').css("color", colours[idx]);
-        div.append(span);
+        title.append(span);
     }
 });
 
