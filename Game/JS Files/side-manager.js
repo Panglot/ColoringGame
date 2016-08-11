@@ -159,6 +159,7 @@ $.fn.startingSideBar = function () {
         mainImgSrc =  "Images/" + rawImgsUrl[mainImgIx - 1] + mainImgIx + ".png";
         $(mainImg).attr('src', mainImgSrc);
 
+
         return mainImgSrc;
     }
     //-- Functions declaration end
