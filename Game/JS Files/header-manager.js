@@ -2,6 +2,19 @@
  * Created by admin on 11.8.2016 г..
  */
 'use strict';
+    var colours = ["#fe17db", "#ff9900", "#ff3300", "#acacac", "#765000", "#339933", "#66ff99", "#33ccff", "#003399", "#000000"], 
+    idx;
+
+$(function() {
+    var div = $('#title'); 
+    var chars = div.text().split('');
+    div.html('');     
+    for(var i=0; i<chars.length; i++) {
+        idx = Math.floor(Math.random() * colours.length);
+        var span = $('<span>' + chars[i] + '</span>').css("color", colours[idx]);
+        div.append(span);
+    }
+});
 
 function headerMain(brush) {
     var toolsElement = document.getElementById('tools-canvas');
