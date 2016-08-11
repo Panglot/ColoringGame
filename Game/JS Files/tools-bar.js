@@ -140,7 +140,7 @@ function toolbar(brush) {
                 brush.color = '#000000';
                 brush.prevColor = '#000000';
             }
-            
+
         }
         else if (mouseX > 642 && mouseX < 704 && mouseY > 69 && mouseY < 148) {
             brush.clear = true;

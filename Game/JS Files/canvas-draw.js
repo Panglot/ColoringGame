@@ -21,6 +21,7 @@ window.onload = function () {
         thickness: 16,
         clear: false
     };
+    musicHandler();
     headerMain(brush);
     toolbar(brush);
 
