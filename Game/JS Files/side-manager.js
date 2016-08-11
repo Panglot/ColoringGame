@@ -52,7 +52,7 @@ $.fn.startingSideBar = function () {
             $selectedImg;
 
         //-- Variables and objects declaration end
-        $sideUl = createDomElement("ul", "side-ul", "", stylesUl);
+        $sideUl = createDomElement("ul", "side-ul", "");
 
         for(var i = 0, len = sideProperties.imgsCount; i < len; i += 1){
             var onePlusIx = Number(1 + i);
