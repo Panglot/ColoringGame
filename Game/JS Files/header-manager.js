@@ -59,36 +59,36 @@ function headerMain(brush) {
         var colorElement = document.getElementById('color-icon');
 
         if (brush.color === '#FFFF66') {
-            $(colorElement).attr('src', './Images/tools/color dots/yellow-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/yellow-color-dot.png');
         }
         else if (brush.color === '#FF9900') {
-            $(colorElement).attr('src', './Images/tools/color dots/orange-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/orange-color-dot.png');
         }
         else if (brush.color === '#FF3300') {
-            $(colorElement).attr('src', './Images/tools/color dots/red-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/red-color-dot.png');
         }
         else if (brush.color === '#ACACAC') {
-            $(colorElement).attr('src', './Images/tools/color dots/gray-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/gray-color-dot.png');
         }
 
         else if (brush.color === '#765000') {
-            $(colorElement).attr('src', './Images/tools/color dots/broun-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/broun-color-dot.png-');
         }
         else if (brush.color === '#339933') {
-            $(colorElement).attr('src', './Images/tools/color dots/green-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/green-color-dot.png');
         }
         else if (brush.color === '#66FF99') {
-            $(colorElement).attr('src', './Images/tools/color dots/lightgreen-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/lightgreen-color-dot.png');
         }
 
         else if (brush.color === '#33CCFF') {
-            $(colorElement).attr('src', './Images/tools/color dots/lightblue-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/lightblue-color-dot.png');
         }
         else if (brush.color === '#003399') {
-            $(colorElement).attr('src', './Images/tools/color dots/blue-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/blue-color-dot.png');
         }
         else if (brush.color === '#000000') {
-            $(colorElement).attr('src', './Images/tools/color dots/black-color-dot.png');
+            $(colorElement).attr('src', './Images/tools/color-dots/black-color-dot.png');
         }
     }
 
